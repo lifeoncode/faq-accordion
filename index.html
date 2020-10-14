@@ -4,30 +4,100 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
   <link rel="stylesheet" href="./scss/main.css">  
   <title>Frontend Mentor | FAQ Accordion Card</title>
 </head>
 <body>
-  How many team members can I invite?
-  You can invite up to 2 additional users on the Free plan. There is no limit on 
-  team members for the Premium plan.
 
-  What is the maximum file upload size?
-  No more than 2GB. All files in your account must fit your allotted storage space.
+  
+  <div class="container">
 
-  How do I reset my password?
-  Click “Forgot password” from the login page or “Change password” from your profile page.
-  A reset link will be emailed to you.
+    <img src="./images/illustration-box-desktop.svg" alt="box illustration" class="box">
 
-  Can I cancel my subscription?
-  Yes! Send us a message and we’ll process your request no questions asked.
+    <div class="image">
+      <img src="./images/illustration-woman-online-desktop.svg" alt=""illustration image>
+    </div>
 
-  Do you provide additional support?
-  Chat and email support is available 24/7. Phone lines are open during normal business hours.
+    
+    <div class="text">
+      <h1>FAQ</h1>
+      
+      <div class="question">
+        <h3>How many team members can I invite?</h3>
+        <i class="fas fa-caret-down"></i>
+        <p>
+          You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.
+        </p>
+      </div>
 
-  <div class="attribution">
+      <div class="question">
+        <h3>What is the maximum file upload size?</h3>
+        <i class="fas fa-caret-down"></i>
+        <p>
+          No more than 2GB. All files in your account must fit your allotted storage space.
+        </p>
+      </div>
+
+      <div class="question">
+        <h3>How do I reset my password?</h3>
+        <i class="fas fa-caret-down"></i>
+        <p>
+          Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you.
+        </p>
+      </div>
+
+      <div class="question">
+        <h3>Can I cancel my subscription?</h3>
+        <i class="fas fa-caret-down"></i>
+        <p>
+          Yes! Send us a message and we’ll process your request no questions asked.
+        </p>
+      </div>
+
+      <div class="question">
+        <h3>Do you provide additional support?</h3>
+        <i class="fas fa-caret-down"></i>
+        <p>
+          Chat and email support is available 24/7. Phone lines are open during normal business hours.
+        </p>
+      </div>
+    </div>
+
+  </div>
+  
+  
+  
+
+  <!-- <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="https://twitter.com/nduduzo__" target="_blank">Nduduzo</a>.
-  </div>
+  </div> -->
+
+  <script>
+    const questions = document.querySelectorAll('.question');
+    const dropdown = document.querySelectorAll('.fa-caret-down');
+
+    dropdown.forEach(down => {
+      down.addEventListener('click', openAns);
+
+      function openAns(e){
+        this.nextElementSibling.style.display = 'block';
+        this.style.transform = 'rotate(180deg)';
+        down.removeEventListener('click', openAns);
+        
+        dropdown.forEach(up => {
+          down.addEventListener('click', closeAns);
+
+          function closeAns(e){
+            this.nextElementSibling.style.display = 'none';
+            this.style.transform = 'rotate(0deg)';
+            up.removeEventListener('click', closeAns);
+            down.addEventListener('click', openAns);
+          }
+        })
+      }
+    });
+  </script>
 </body>
 </html>

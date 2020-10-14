@@ -1,0 +1,54 @@
+// fonts
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap');
+
+*, *::before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img{
+    width: 100%;
+}
+
+ul{
+    list-style: none;
+}
+
+// text colors
+$dark-saturated-blue: hsl(238, 29%, 16%);
+$soft-red: hsl(14, 88%, 65%);
+$very-dark-gray-blue: hsl(237, 12%, 33%);
+$dark-gray-blue: hsl(240, 6%, 50%);
+// bg colors
+$soft-violet: hsl(273, 75%, 66%);
+$soft-blue: hsl(240, 73%, 65%);
+// custom color
+$custom: hsl(240, 5%, 91%);
+
+$gradient: linear-gradient(45deg, hsl(240, 73%, 65%), hsl(273, 75%, 66%));
+
+
+// font sizes
+$small: 12px;
+$medium: 14px;
+$large: 32px;
+
+
+@mixin transitionEffect {
+    transition: all 0.3s ease;
+}
+
+@mixin flexDisplay($direction, $align, $justify){
+    display: flex;
+    flex-direction: $direction;
+    align-items: $align;
+    justify-content: $justify;
+}
+
+@mixin gridDisplay($columns, $gap)  {
+    display: grid;   
+    grid-template-columns: $columns;
+    gap: $gap;
+}
+
